@@ -39,6 +39,7 @@ const Register = () => {
         .then(result => {
           updateUserProfile(name, imageData.data.display_url)
             .then(
+              toast.success('image uplade and your name')
 
             )
             .catch((error) => console.log(error));
@@ -51,23 +52,9 @@ const Register = () => {
 
 
 
-    //1. Create Accounts
-    createUser(email, password)
-      .then((result) => {
-        console.log(result.user);
+        
 
-        //2. Update name
-        updateUserProfile(name)
-          .then(() => {
-            toast.success("Name update");
-          })
-          .catch((error) => {
-            toast.error(error.message);
-          });
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+
   };
 
 
