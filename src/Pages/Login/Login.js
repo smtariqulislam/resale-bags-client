@@ -1,11 +1,21 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import SmallSpinner from "../../components/SmallSpinner";
 import { AuthContext } from "../../contexts/AuthProvider";
-// import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
+
 
 const Login = () => {
-  const { signIn, signInWithGoogle } = useContext(AuthContext);
+  const { signIn, signInWithGoogle, loading, setLoading } =
+    useContext(AuthContext);
+
+  const navigate = useNavigate()
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || '/';
+
+
+
 
   // signIn using email and pass
   const handlelogin = (event) => {
@@ -16,8 +26,13 @@ const Login = () => {
 
     signIn(email,password).then(result =>{
       toast.success('login sucess');
-      console.log(result.user)
-    }).catch(error => toast.error(error.message));
+      // console.log(result.user)
+      navigate(from,{replace:true})
+    }).catch(error => {
+      toast.error(error.message);
+      console.log(error);
+      setLoading(false); //for spinner.
+    });
 
   };
 
@@ -80,7 +95,9 @@ const Login = () => {
           <div className="space-y-2">
             <div>
               <button className="w-full px-8 py-3 font-semibold rounded-md   bg-violet-400   text-gray-900">
-                Sign in
+               {
+                loading? <SmallSpinner></SmallSpinner> : 'Sign In'
+               }
               </button>
             </div>
             <p className="px-6 text-sm text-center text-gray-400">

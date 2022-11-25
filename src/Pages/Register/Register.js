@@ -3,10 +3,17 @@ import { Link } from "react-router-dom";
 import PrimaryButton from "../../components/PrimaryButton";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../contexts/AuthProvider";
+import SmallSpinner from "../../components/SmallSpinner";
 
 
 const Register = () => {
-  const { createUser, updateUserProfile, signInWithGoogle } = useContext(AuthContext);
+  const {
+    createUser,
+    updateUserProfile,
+    signInWithGoogle,
+    loading,
+    setLoading,
+  } = useContext(AuthContext);
 
   // signup using email and pass
   const handleSignUp = (event) => {
@@ -45,15 +52,13 @@ const Register = () => {
             .catch((error) => console.log(error));
 
         })
-          .catch(error => console.log(error))
+          .catch(error => {
+            console.log(error);
+            setLoading(false)
+          })
 
         })
         .catch(error => console.log(error))
-
-
-
-        
-
 
   };
 
@@ -156,10 +161,9 @@ const Register = () => {
               <div>
                 <PrimaryButton
                   type="submit"
-        
                   classes="w-full px-8 py-3 font-semibold rounded-md bg-gray-900 hover:bg-gray-700 hover:text-white text-gray-100"
                 >
-                  Sign Up
+                  {loading ? <SmallSpinner></SmallSpinner> : "Sign Up"}
                 </PrimaryButton>
               </div>
               <p className="px-6 text-sm text-center mx-2 text-gray-400">

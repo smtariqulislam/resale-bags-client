@@ -18,16 +18,19 @@ export const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState({});
+   const [loading, setLoading] = useState(true);
 
   console.log(user);
   //1.create user
   const createUser = (email, password) => {
+     setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
   //2. update  name
 
   const updateUserProfile = (name, photo) => {
+     setLoading(true);
     return updateProfile(auth.currentUser, {
       displayName: name,
       photoURL: photo,
@@ -39,29 +42,33 @@ const AuthProvider = ({ children }) => {
   // const verityEamil = () =>{
   //     return sendEmailVerification(auth.currentUser)
   // }
+  
 
   //4. google sign
 
   const googleProvider = new GoogleAuthProvider();
 
   const signInWithGoogle = () => {
+     setLoading(true);
     return signInWithPopup(auth, googleProvider);
   };
 
-  //5. logout with password
+  //5. logIn with password
 
    const signIn = (email,password) =>{
+     setLoading(true);
     return signInWithEmailAndPassword(auth,email,password)
    }
 
 
-  //6. forget password
+  //6. Log0ut 
 
   const logout = () => {
+     setLoading(true);
     return signOut(auth);
   };
 
-  //6. login
+
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -80,6 +87,8 @@ const AuthProvider = ({ children }) => {
     signInWithGoogle,
     logout,
     signIn,
+    loading,
+    setLoading
   };
 
   return (
