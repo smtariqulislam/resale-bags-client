@@ -1,9 +1,21 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import PrimaryButton from '../../components/PrimaryButton';
+import { AuthContext } from '../../contexts/AuthProvider';
 
 const Header = () => {
      const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+     const {user,logout} =useContext(AuthContext);
+
+     const handlelogout = () =>{
+      logout()
+        .then(toast.warning("User logged out!"))
+        .catch((error) => console.log(error));
+     }
+
+     console.log(user)
 
     return (
       <div>
@@ -85,13 +97,48 @@ const Header = () => {
                   Blog
                 </Link>
               </li>
-              <li>
-                <Link to="/login">
-                  <PrimaryButton classes="inline-flex items-center justify-center bg-black h-12 px-6 font-medium tracking-wide text-gray-100 hover:text-purple-400 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none">
-                    Sign up
-                  </PrimaryButton>
-                </Link>
-              </li>
+
+              {user?.email ? (
+                <>
+                  <li>
+                    <Link
+                      to="/order"
+                      aria-label="blog"
+                      title="blog"
+                      className="font-medium tracking-wide text-gray-200 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                    >
+                      Oder
+                    </Link>
+                  </li>
+                  <li>
+                    
+                      <button
+                        onClick={handlelogout}
+                        classes="inline-flex items-center justify-center bg-black h-12 px-6 font-medium tracking-wide text-gray-100 hover:text-purple-400 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+                      >
+                        Sign Out
+                     </button>
+                    
+                  </li>
+                </>
+              ) : (
+                <>
+                  <li>
+                    <Link to="/login">
+                      <PrimaryButton classes="inline-flex items-center justify-center bg-black h-12 px-6 font-medium tracking-wide text-gray-100 hover:text-purple-400 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none">
+                        Sign In
+                      </PrimaryButton>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/register">
+                      <PrimaryButton classes="inline-flex items-center justify-center bg-black h-12 px-6 font-medium tracking-wide text-gray-100 hover:text-purple-400 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none">
+                        Sign Up
+                      </PrimaryButton>
+                    </Link>
+                  </li>
+                </>
+              )}
             </ul>
             <div className="lg:hidden">
               <button
@@ -217,13 +264,48 @@ const Header = () => {
                             Blog
                           </Link>
                         </li>
-                        <li>
-                          <Link to="/login">
-                            <PrimaryButton classes="inline-flex items-center justify-center bg-black h-12 px-6 font-medium tracking-wide text-gray-100 hover:text-purple-400 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none">
-                              Sign up
-                            </PrimaryButton>
-                          </Link>
-                        </li>
+
+                        {user?.email ? (
+                          <>
+                            <li>
+                              <Link
+                                to="/order"
+                                aria-label="blog"
+                                title="blog"
+                                className="font-medium tracking-wide text-gray-200 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                              >
+                                Oder
+                              </Link>
+                            </li>
+                            <li>
+                              
+                                <button
+                                  onClick={handlelogout}
+                                  classes="inline-flex items-center justify-center bg-black h-12 px-6 font-medium tracking-wide text-gray-100 hover:text-purple-400 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+                                >
+                                  Sign Out
+                                </button>
+                             
+                            </li>
+                          </>
+                        ) : (
+                          <>
+                            <li>
+                              <Link to="/login">
+                                <PrimaryButton classes="inline-flex items-center justify-center bg-black h-12 px-6 font-medium tracking-wide text-gray-100 hover:text-purple-400 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none">
+                                  Sign In
+                                </PrimaryButton>
+                              </Link>
+                            </li>
+                            <li>
+                              <Link to="/register">
+                                <PrimaryButton classes="inline-flex items-center justify-center bg-black h-12 px-6 font-medium tracking-wide text-gray-100 hover:text-purple-400 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none">
+                                  Sign Up
+                                </PrimaryButton>
+                              </Link>
+                            </li>
+                          </>
+                        )}
                       </ul>
                     </nav>
                   </div>
