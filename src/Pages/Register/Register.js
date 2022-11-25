@@ -2,18 +2,70 @@ import React from "react";
 import { Link } from "react-router-dom";
 import PrimaryButton from "../../components/PrimaryButton";
 
+import { getAuth, createUserWithEmailAndPassword, updateProfile, sendEmailVerification, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import app from "../../firebase/firebase.config";
+import { toast } from "react-toastify";
+
+const auth = getAuth(app)
+
 
 const Register = () => {
 
-  const handleSignUp= event =>{
-  
-   event.preventDefault();
-   const form = event.target;
-   const name = form.name.value;
-   const email = form.email.value;
-   const password = form.password.value;
-  }
 
+  const googleProvider = new GoogleAuthProvider()
+
+  // signup using email and pass
+  const handleSignUp= event =>{
+    event.preventDefault();
+    const form = event.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    //1. Create Accounts
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((result) => {
+        console.log(result.user);
+
+        //2. Update name
+        updateProfile(auth.currentUser, {
+          displayName: name,
+          photoURL: "https://example.com/jane-q-user/profile.jpg",
+        })
+          .then(() => {
+            toast.success("Name update");
+            console.log(auth.currentUser.displayName);
+
+            //3. Email verification sent!
+            sendEmailVerification(auth.currentUser)
+              .then(() => {
+                toast.success("please check your mail for verify");
+              })
+              .catch((error) => {
+                toast.error(error.message);
+              });
+          })
+          .catch((error) => {
+            toast.error(error.message);
+          });
+      })
+      .catch((error) => {
+        //  const errorCode = error.code;
+        //  const errorMessage = error.message;
+        //  console.log(errorCode);
+        //  console.log(errorMessage);
+        console.log(error);
+      });
+  }
+  //google signIn
+
+const handleGoogleSignIn =()=>{
+  // console.log('google')
+  signInWithPopup(auth,googleProvider)
+  .then(result=>{
+    console.log(result.user)
+  })
+}
 
   return (
     <div>
@@ -87,7 +139,7 @@ const Register = () => {
                   type="submit"
                   classes="w-full px-8 py-3 font-semibold rounded-md bg-gray-900 hover:bg-gray-700 hover:text-white text-gray-100"
                 >
-                  Sign in
+                  Sign Up
                 </PrimaryButton>
               </div>
               <p className="px-6 text-sm text-center mx-2 text-gray-400">
@@ -100,7 +152,7 @@ const Register = () => {
             </div>
           </form>
           <button
-            //   onClick={handleGoogleSignIn}
+              onClick={handleGoogleSignIn}
             className="px-8 py-3 font-semibold border rounded dark:border-gray-100 hover:bg-gray-500 dark:text-gray-100"
           >
             
