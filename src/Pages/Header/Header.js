@@ -11,7 +11,7 @@ const Header = () => {
 
      const handlelogout = () =>{
       logout()
-        .then(toast.warning("User logged out!"))
+        .then(toast.dark("User logged out!"))
         .catch((error) => console.log(error));
      }
 

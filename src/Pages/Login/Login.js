@@ -1,8 +1,35 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
+import { AuthContext } from "../../contexts/AuthProvider";
 // import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 
 const Login = () => {
+  const { signIn, signInWithGoogle } = useContext(AuthContext);
+
+  // signIn using email and pass
+  const handlelogin = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    signIn(email,password).then(result =>{
+      toast.success('login sucess');
+      console.log(result.user)
+    }).catch(error => toast.error(error.message));
+
+  };
+
+  //google signIn
+
+  const handleGoogleSignIn = () => {
+    // console.log('google')
+    signInWithGoogle().then((result) => {
+      console.log(result.user);
+    });
+  };
+
   return (
     <div className="h-[800px] flex justify-center items-center">
       <div className="grid justify-center max-w-md p-6 rounded-md sm:p-10 bg-violet-900 text-gray-100">
@@ -13,7 +40,7 @@ const Login = () => {
           </p>
         </div>
         <form
-            // onSubmit={handlelogin}
+          onSubmit={handlelogin}
           className="space-y-12 ng-untouched ng-pristine ng-valid"
         >
           <div className="space-y-4">
@@ -64,6 +91,12 @@ const Login = () => {
             </p>
           </div>
         </form>
+        <button
+          onClick={handleGoogleSignIn}
+          className="px-8 py-3 font-semibold border rounded dark:border-gray-100 hover:bg-gray-500 dark:text-gray-100"
+        >
+          Sign In With Google
+        </button>
       </div>
     </div>
   );

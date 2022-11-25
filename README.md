@@ -9,3 +9,9 @@
 6. react rook form
 7. firebase 
 8. react toastify
+
+## implement:
+1. react router dom setup.
+2. firebase setup 
+3. register page and image implement with image bd
+4. login page
