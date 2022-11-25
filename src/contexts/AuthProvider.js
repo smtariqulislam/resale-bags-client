@@ -1,16 +1,24 @@
-import { createUserWithEmailAndPassword, getAuth,  GoogleAuthProvider,  onAuthStateChanged,  signInWithPopup,  signOut,  updateProfile } from 'firebase/auth';
-import React, { createContext, useEffect, useState } from 'react';
+import {
+  createUserWithEmailAndPassword,
+  getAuth,
+  GoogleAuthProvider,
+  onAuthStateChanged,
+  signInWithPopup,
+  signOut,
+  updateProfile,
+} from "firebase/auth";
+import React, { createContext, useEffect, useState } from "react";
 
-import app from '../firebase/firebase.config';
-
-
+import app from "../firebase/firebase.config";
 
 const auth = getAuth(app);
 
-export const AuthContext = createContext()
+export const AuthContext = createContext();
 
-const AuthProvider = ({children}) => {
+const AuthProvider = ({ children }) => {
   const [user, setUser] = useState({});
+
+  console.log(user);
   //1.create user
   const createUser = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
@@ -18,11 +26,11 @@ const AuthProvider = ({children}) => {
 
   //2. update  name
 
-  const updateUserProfile = (name,photo) => {
-    return updateProfile(auth.currentUser, { 
-        displayName: name,
-        photoURL:photo,
-});
+  const updateUserProfile = (name, photo) => {
+    return updateProfile(auth.currentUser, {
+      displayName: name,
+      photoURL: photo,
+    });
   };
 
   //3. email verify
@@ -42,13 +50,8 @@ const AuthProvider = ({children}) => {
   //5. logout
 
   const logout = () => {
-  return  signOut(auth)
+    return signOut(auth);
   };
-
-
-
-
-
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -60,15 +63,13 @@ const AuthProvider = ({children}) => {
     };
   }, []);
 
-
-
-    const authInfo = {
-      user,
-      createUser,
-      updateUserProfile,
-      signInWithGoogle,
-      logout,
-    };
+  const authInfo = {
+    user,
+    createUser,
+    updateUserProfile,
+    signInWithGoogle,
+    logout,
+  };
 
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

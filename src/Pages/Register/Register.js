@@ -16,27 +16,58 @@ const Register = () => {
     const image = form.image.files[0];
     const email = form.email.value;
     const password = form.password.value;
-    console.log(image);
+    // console.log(image);
+
+    const formData = new FormData();
+    formData.append("image", image);
+    //d51056df54a16b782fcbb3e2cfdd3ea4
+
+    const url =
+      "https://api.imgbb.com/1/upload?key=d51056df54a16b782fcbb3e2cfdd3ea4"
+
+      fetch(url, {
+        method: "POST",
+        body: formData,
+      })
+        .then(res => res.json())
+        .then(imageData =>
+        {
+          console.log(imageData.data.display_url)
+
+         //create user
+         createUser(email, password)
+        .then(result => {
+          updateUserProfile(name, imageData.data.display_url)
+            .then(
+
+            )
+            .catch((error) => console.log(error));
+
+        })
+          .catch(error => console.log(error))
+
+        })
+        .catch(error => console.log(error))
+
+
 
     //1. Create Accounts
-   createUser(email, password)
-     .then((result) => {
-       console.log(result.user);
+    createUser(email, password)
+      .then((result) => {
+        console.log(result.user);
 
-       //2. Update name
-       updateUserProfile(name)
-         .then(() => {
-           toast.success("Name update");
-       
-         })
-         .catch((error) => {
-           toast.error(error.message);
-         });
-     })
-     .catch((error) => {
-       
-       console.log(error);
-     });
+        //2. Update name
+        updateUserProfile(name)
+          .then(() => {
+            toast.success("Name update");
+          })
+          .catch((error) => {
+            toast.error(error.message);
+          });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
 
@@ -83,6 +114,7 @@ const Register = () => {
                   Name
                 </label>
                 <input
+                  required
                   type="text"
                   name="name"
                   id="text"
@@ -109,6 +141,7 @@ const Register = () => {
                   Email address
                 </label>
                 <input
+                  required
                   type="email"
                   name="email"
                   id="email"
@@ -123,6 +156,7 @@ const Register = () => {
                   </label>
                 </div>
                 <input
+                  required
                   type="password"
                   name="password"
                   id="password"
@@ -135,6 +169,7 @@ const Register = () => {
               <div>
                 <PrimaryButton
                   type="submit"
+        
                   classes="w-full px-8 py-3 font-semibold rounded-md bg-gray-900 hover:bg-gray-700 hover:text-white text-gray-100"
                 >
                   Sign Up
