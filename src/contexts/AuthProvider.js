@@ -65,6 +65,7 @@ const AuthProvider = ({ children }) => {
 
   const logout = () => {
      setLoading(true);
+     localStorage.removeItem("oldBagShop-token")
     return signOut(auth);
   };
 

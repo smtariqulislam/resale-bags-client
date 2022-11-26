@@ -1,9 +1,10 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import PrimaryButton from "../../components/PrimaryButton";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../contexts/AuthProvider";
 import SmallSpinner from "../../components/SmallSpinner";
+import { setAuthToken } from "../../api/auth";
 
 
 const Register = () => {
@@ -14,6 +15,12 @@ const Register = () => {
     loading,
     setLoading,
   } = useContext(AuthContext);
+
+
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || "/";
 
   // signup using email and pass
   const handleSignUp = (event) => {
@@ -44,11 +51,17 @@ const Register = () => {
          //create user
          createUser(email, password)
         .then(result => {
+          setAuthToken(result.user);
           updateUserProfile(name, imageData.data.display_url)
             .then(
-              toast.success('image uplade and your name')
-
+              toast.success(
+                'image uplade and your name'
+              )
+              //  navigate(from,{replace:true})
+               
             )
+             navigate(from,{replace:true})
+           
             .catch((error) => console.log(error));
 
         })
@@ -84,6 +97,9 @@ const Register = () => {
     // console.log('google')
    signInWithGoogle().then((result) => {
      console.log(result.user);
+
+     setAuthToken(result.user);
+      navigate(from,{replace:true})
    });
   };
 
