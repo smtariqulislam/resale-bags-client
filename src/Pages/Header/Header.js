@@ -19,7 +19,10 @@ const Header = () => {
 
     return (
       <div>
-        <div className="px-4 py-5 bg-violet-800 md:max-w-full  md:px-24 lg:px-8">
+        <div
+        
+          className="px-4 py-5 bg-violet-800 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 mb-2"
+        >
           <div className="relative flex items-center justify-between">
             <Link
               to="/"
@@ -111,14 +114,12 @@ const Header = () => {
                     </Link>
                   </li>
                   <li>
-                    
-                      <button
-                        onClick={handlelogout}
-                        classes="inline-flex items-center justify-center bg-black h-12 px-6 font-medium tracking-wide text-gray-100 hover:text-purple-400 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
-                      >
-                        Sign Out
-                     </button>
-                    
+                    <button
+                      onClick={handlelogout}
+                      classes="inline-flex items-center justify-center bg-black h-12 px-6 font-medium tracking-wide text-gray-100 hover:text-purple-400 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+                    >
+                      Sign Out
+                    </button>
                   </li>
                 </>
               ) : (
@@ -278,14 +279,12 @@ const Header = () => {
                               </Link>
                             </li>
                             <li>
-                              
-                                <button
-                                  onClick={handlelogout}
-                                  classes="inline-flex items-center justify-center bg-black h-12 px-6 font-medium tracking-wide text-gray-100 hover:text-purple-400 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
-                                >
-                                  Sign Out
-                                </button>
-                             
+                              <button
+                                onClick={handlelogout}
+                                classes="inline-flex items-center justify-center bg-black h-12 px-6 font-medium tracking-wide text-gray-100 hover:text-purple-400 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+                              >
+                                Sign Out
+                              </button>
                             </li>
                           </>
                         ) : (

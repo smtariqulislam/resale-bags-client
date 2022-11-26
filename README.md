@@ -15,3 +15,5 @@
 2. firebase setup 
 3. register page and image implement with image bd
 4. login page
+5. jwt 
+6. 
