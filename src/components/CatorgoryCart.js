@@ -7,10 +7,7 @@ const CatorgoryCart = ({product}) => {
     console.log(product);
     return (
       <div className="p-6  rounded shadow-lg">
-        <Link
-          to="/coming-soon"
-         
-        >
+        <Link to="/coming-soon">
           <img
             alt="e-commerce"
             className="object-cover w-full h-80 mb-6 rounded shadow-lg"
@@ -33,9 +30,12 @@ const CatorgoryCart = ({product}) => {
             <StarIcon className="h3 w-3 text-green-500" />
             <StarIcon className="h3 w-3 text-green-500" />
             <StarIcon className="h3 w-3 text-green-500" />
-            <StarIcon className="h3 w-3 text-green-500" />{" "}
+            <StarIcon className="h3 w-3 text-green-500" />
             <span>{product.rating}</span>
           </div>
+          <Link  className="px-8 py-3 text-lg font-semibold rounded bg-violet-800 text-gray-100 hover:bg-violet-500">
+            Booked Now
+          </Link>
         </div>
       </div>
     );

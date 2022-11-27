@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import logo from '../../assets/Waist bag-bro.png'
+import Catorgory from '../Catorgory/Catorgory';
 
 const Home = () => {
     return (
@@ -39,6 +40,10 @@ const Home = () => {
             </div>
           </div>
         </section>
+
+        <div>
+          <Catorgory></Catorgory>
+        </div>
       </div>
     );
 };
