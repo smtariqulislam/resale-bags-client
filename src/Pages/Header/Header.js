@@ -15,7 +15,7 @@ const Header = () => {
         .catch((error) => console.log(error));
      }
 
-     console.log(user)
+    //  console.log(user)
 
     return (
       <div>
@@ -102,18 +102,18 @@ const Header = () => {
                 <>
                   <li>
                     <Link
-                      to="/order"
+                      to="/dashboard"
                       aria-label="blog"
                       title="blog"
                       className="font-medium tracking-wide text-gray-200 transition-colors duration-200 hover:text-deep-purple-accent-400"
                     >
-                      Oder
+                      Dashboard
                     </Link>
                   </li>
                   <li>
                     <button
                       onClick={handlelogout}
-                      classes="inline-flex items-center justify-center bg-black h-12 px-6 font-medium tracking-wide text-gray-100 hover:text-purple-400 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+                      className="px-8 py-3 font-semibold rounded bg-gray-100 text-gray-800"
                     >
                       Sign Out
                     </button>
@@ -267,18 +267,18 @@ const Header = () => {
                           <>
                             <li>
                               <Link
-                                to="/order"
+                                to="/dashboard"
                                 aria-label="blog"
                                 title="blog"
                                 className="font-medium tracking-wide text-gray-200 transition-colors duration-200 hover:text-deep-purple-accent-400"
                               >
-                                Oder
+                                Dashboard
                               </Link>
                             </li>
                             <li>
                               <button
                                 onClick={handlelogout}
-                                classes="inline-flex items-center justify-center bg-black h-12 px-6 font-medium tracking-wide text-gray-100 hover:text-purple-400 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+                                className="px-8 py-3 font-semibold rounded bg-gray-100 text-gray-800"
                               >
                                 Sign Out
                               </button>

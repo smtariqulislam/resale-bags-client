@@ -7,6 +7,7 @@ import Register from "../Pages/Register/Register";
 import Login from "../Pages/Login/Login"
 import Catorgory from "../Pages/Catorgory/Catorgory";
 import Dashboard from "../Dashboard/Dashboard";
+import CatorgoryDetails from "../Pages/Catorgory/CatorgoryDetails";
 
 export const router = createBrowserRouter([
   {
@@ -38,19 +39,18 @@ export const router = createBrowserRouter([
         path: "/catorgory",
         element: <Catorgory></Catorgory>,
       },
+      {
+        path: "/catorgory/:id",
+         loader: ({params}) => fetch(`data.json/`),
+
+        element: <CatorgoryDetails></CatorgoryDetails>,
+      },
     ],
   },
 
   {
     path: "/dashboard",
-    element: (
-    
-       <Dashboard></Dashboard>
-     
-    ),
-    children: [
-     
-     
-    ],
+    element: <Dashboard></Dashboard>,
+    children: [],
   },
 ]);
