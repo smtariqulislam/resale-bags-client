@@ -1,6 +1,7 @@
 import { format } from 'date-fns';
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+
+import { toast } from 'react-toastify';
 import { AuthContext } from '../contexts/AuthProvider';
 
 const BookingModal = ({ bookingProduct }) => {
@@ -28,6 +29,26 @@ const BookingModal = ({ bookingProduct }) => {
      };
 
     //  console.log(booking);
+    fetch("http://localhost:4000/bookings", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(booking),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.acknowledged) {
+          // setTreatment(null);
+          toast.success("Booking confirmed");
+          // refetch();
+        } else {
+          toast.error(data.message);
+        }
+      });
+
+
    
    };
   return (
@@ -61,13 +82,17 @@ const BookingModal = ({ bookingProduct }) => {
             </select>
             <input
               name="name"
-              type="text" defaultValue={user?.displayName} disabled
+              type="text"
+              defaultValue={user?.displayName}
+              disabled
               placeholder="Your Name"
               className="input w-full input-bordered"
             />
             <input
               name="email"
-              type="email" defaultValue={user?.email} disabled
+              type="email"
+              defaultValue={user?.email}
+              disabled
               placeholder="Email Address"
               className="input w-full input-bordered"
             />
@@ -78,9 +103,14 @@ const BookingModal = ({ bookingProduct }) => {
               className="input w-full input-bordered"
             />
             <br />
-            <Link className="btn text-center bg-violet-800 text-gray-100 hover:bg-violet-500">
-             Add Product
-            </Link>
+            {/* <Link className="btn text-center bg-violet-800 text-gray-100 hover:bg-violet-500">
+              Add Product
+            </Link> */}
+            <input
+              className="btn bg-violet-800 text-gray-100 w-full"
+              type="submit"
+              value="Submit"
+            />
           </form>
         </div>
       </div>
