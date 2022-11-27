@@ -6,9 +6,12 @@ import Home from "../Pages/Home/Home";
 import Register from "../Pages/Register/Register";
 import Login from "../Pages/Login/Login"
 import Catorgory from "../Pages/Catorgory/Catorgory";
-import Dashboard from "../Dashboard/Dashboard";
+
 import CatorgoryDetails from "../Pages/Catorgory/CatorgoryDetails";
 import ErrorPage from "../Pages/ErrorPage";
+import PrivateRoute from "./PrivateRoute";
+import DashboardLayout from "../Layout/DashboardLayout";
+import Dashboard from "../Pages/Dashboard/Dashboard";
 
 export const router = createBrowserRouter([
   {
@@ -52,8 +55,11 @@ export const router = createBrowserRouter([
 
   {
     path: "/dashboard",
-    element: <Dashboard></Dashboard>,
+    element: <PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
     errorElement: <ErrorPage />,
-    children: [],
+    children: [{
+      path:'/dashboard',
+      element:<Dashboard></Dashboard>
+    }],
   },
 ]);

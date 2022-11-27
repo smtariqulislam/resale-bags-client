@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import PrimaryButton from "../../components/PrimaryButton";
+
 import { toast } from "react-toastify";
 import { AuthContext } from "../../contexts/AuthProvider";
 import SmallSpinner from "../../components/SmallSpinner";
@@ -175,12 +175,9 @@ const Register = () => {
             </div>
             <div className="space-y-2">
               <div>
-                <PrimaryButton
-                  type="submit"
-                  classes="w-full px-8 py-3 font-semibold rounded-md bg-gray-900 hover:bg-gray-700 hover:text-white text-gray-100"
-                >
+                <button className="w-full px-8 py-3 font-semibold rounded-md   bg-violet-400   text-gray-900">
                   {loading ? <SmallSpinner></SmallSpinner> : "Sign Up"}
-                </PrimaryButton>
+                </button>
               </div>
               <p className="px-6 text-sm text-center mx-2 text-gray-400">
                 Have an account?
