@@ -23,11 +23,10 @@ const Home = () => {
               </h1>
               <p className="mt-6 mb-8 text-lg sm:mb-12">
                 You can find any kind of bag.
-                <br className="hidden md:inline lg:hidden" />
-                A bag is a common
+                <br className="hidden md:inline lg:hidden" />A bag is a common
                 tool in the form of a non-rigid container. The use of bags
-                predates. Cheap disposable paper bags and plastic shopping
-                bags are very common.
+                predates. Cheap disposable paper bags and plastic shopping bags
+                are very common.
               </p>
               <div className="flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start">
                 <Link
@@ -40,6 +39,8 @@ const Home = () => {
             </div>
           </div>
         </section>
+
+       
 
         <div>
           <Catorgory></Catorgory>

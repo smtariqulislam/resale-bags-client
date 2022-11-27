@@ -13,12 +13,11 @@
         "useYear": "2day" ,
         "description":"Proactively scale impactful infrastructures without bricks-and-clicks data. Seamlessly parallel task multimedia based mindshare vis-a-vis one-to-one catalysts for change. Dramatically disseminate.",
          "slots": [
-      "80",
-      "200",
-      "300",
-      "400",
-      "500",
-      "1500"
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
     ]
     },
      {
@@ -35,12 +34,11 @@
         "useYear": "2day",
           "description":"Proactively scale impactful infrastructures without bricks-and-clicks data. Seamlessly parallel task multimedia based mindshare vis-a-vis one-to-one catalysts for change. Dramatically disseminate.",
            "slots": [
-      "80",
-      "200",
-      "300",
-      "400",
-      "500",
-      "1500"
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
     ]
     },
      {
@@ -57,12 +55,11 @@
         "useYear": "2day",
           "description":"Proactively scale impactful infrastructures without bricks-and-clicks data. Seamlessly parallel task multimedia based mindshare vis-a-vis one-to-one catalysts for change. Dramatically disseminate.",
            "slots": [
-      "80",
-      "200",
-      "300",
-      "400",
-      "500",
-      "1500"
+       "1",
+      "2",
+      "3",
+      "4",
+      "5"
     ]
     },
      {
@@ -79,12 +76,12 @@
         "useYear": "2day",
           "description":"Proactively scale impactful infrastructures without bricks-and-clicks data. Seamlessly parallel task multimedia based mindshare vis-a-vis one-to-one catalysts for change. Dramatically disseminate.",
            "slots": [
-      "80",
-      "200",
-      "300",
-      "400",
-      "500",
-      "1500"
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+      
     ]
     },
      {
@@ -101,12 +98,11 @@
         "useYear": "2day",
           "description":"Proactively scale impactful infrastructures without bricks-and-clicks data. Seamlessly parallel task multimedia based mindshare vis-a-vis one-to-one catalysts for change. Dramatically disseminate.",
            "slots": [
-      "80",
-      "200",
-      "300",
-      "400",
-      "500",
-      "1500"
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
     ]
     },
      {
@@ -122,12 +118,11 @@
         "useYear": "2day",
           "description":"Proactively scale impactful infrastructures without bricks-and-clicks data. Seamlessly parallel task multimedia based mindshare vis-a-vis one-to-one catalysts for change. Dramatically disseminate.",
            "slots": [
-      "80",
-      "200",
-      "300",
-      "400",
-      "500",
-      "1500"
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
     ]
     }
 ]
