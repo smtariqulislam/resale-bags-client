@@ -4,29 +4,28 @@ import React, { useContext } from 'react';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../contexts/AuthProvider';
 
-const BookingModal = ({ bookingProduct }) => {
-  const { name, slots } = bookingProduct;
+const BookingModal = ({ bookingProduct, setBookingProduct }) => {
+  const { name:productName , slots } = bookingProduct;
   const date = format(new Date(), "PP");
 
-  const {user}= useContext(AuthContext);
+  const { user } = useContext(AuthContext);
 
+  const handleBooking = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const slot = form.slot.value;
+    const name = form.name.value;
+    const email = form.email.value;
+    const phone = form.phone.value;
 
-   const handleBooking = (event) => {
-     event.preventDefault();
-     const form = event.target;
-     const slot = form.slot.value;
-     const name = form.name.value;
-     const email = form.email.value;
-     const phone = form.phone.value;
-    
-     const booking = {
-       selectedDate: date,
-       product: name,
-       costomer: name,
-       slot,
-       email,
-       phone,
-     };
+    const booking = {
+      selectedDate: date,
+      product: productName,
+      costomer: name,
+      slot,
+      email,
+      phone,
+    };
 
     //  console.log(booking);
     fetch("http://localhost:4000/bookings", {
@@ -40,17 +39,14 @@ const BookingModal = ({ bookingProduct }) => {
       .then((data) => {
         console.log(data);
         if (data.acknowledged) {
-          // setTreatment(null);
+           setBookingProduct(null);
           toast.success("Booking confirmed");
           // refetch();
         } else {
           toast.error(data.message);
         }
       });
-
-
-   
-   };
+  };
   return (
     <>
       <input type="checkbox" id="my-modal-3" className="modal-toggle" />
@@ -62,7 +58,7 @@ const BookingModal = ({ bookingProduct }) => {
           >
             ✕
           </label>
-          <h3 className="text-lg font-bold">{name}</h3>
+          <h3 className="text-lg font-bold">{productName}</h3>
           <form
             onSubmit={handleBooking}
             className="grid grid-cols-1 gap-3 mt-10"
