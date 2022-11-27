@@ -8,11 +8,13 @@ import Login from "../Pages/Login/Login"
 import Catorgory from "../Pages/Catorgory/Catorgory";
 import Dashboard from "../Dashboard/Dashboard";
 import CatorgoryDetails from "../Pages/Catorgory/CatorgoryDetails";
+import ErrorPage from "../Pages/ErrorPage";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement: <ErrorPage />,
 
     children: [
       {
@@ -41,7 +43,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/catorgory/:id",
-         loader: ({params}) => fetch(`data.json/`),
+        loader: ({ params }) => fetch(`data.json/`),
 
         element: <CatorgoryDetails></CatorgoryDetails>,
       },
@@ -51,6 +53,7 @@ export const router = createBrowserRouter([
   {
     path: "/dashboard",
     element: <Dashboard></Dashboard>,
+    errorElement: <ErrorPage />,
     children: [],
   },
 ]);
