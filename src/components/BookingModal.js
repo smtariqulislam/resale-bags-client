@@ -1,10 +1,13 @@
 import { format } from 'date-fns';
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../contexts/AuthProvider';
 
 const BookingModal = ({ bookingProduct }) => {
   const { name, slots } = bookingProduct;
   const date = format(new Date(), "PP");
+
+  const {user}= useContext(AuthContext);
 
 
    const handleBooking = (event) => {
@@ -16,18 +19,15 @@ const BookingModal = ({ bookingProduct }) => {
      const phone = form.phone.value;
     
      const booking = {
-       appointmentDate: date,
-       treatment: name,
-       patient: name,
+       selectedDate: date,
+       product: name,
+       costomer: name,
        slot,
        email,
        phone,
      };
 
-     // TODO: send data to the server
-     // and once data is saved then close the modal
-     // and display success toast
-     console.log(booking);
+    //  console.log(booking);
    
    };
   return (
@@ -61,13 +61,13 @@ const BookingModal = ({ bookingProduct }) => {
             </select>
             <input
               name="name"
-              type="text"
+              type="text" defaultValue={user?.displayName} disabled
               placeholder="Your Name"
               className="input w-full input-bordered"
             />
             <input
               name="email"
-              type="email"
+              type="email" defaultValue={user?.email} disabled
               placeholder="Email Address"
               className="input w-full input-bordered"
             />
@@ -78,11 +78,9 @@ const BookingModal = ({ bookingProduct }) => {
               className="input w-full input-bordered"
             />
             <br />
-            <input
-              className="btn btn-accent w-full"
-              type="Add Product"
-              value="Add Product"
-            />
+            <Link className="btn text-center bg-violet-800 text-gray-100 hover:bg-violet-500">
+             Add Product
+            </Link>
           </form>
         </div>
       </div>
