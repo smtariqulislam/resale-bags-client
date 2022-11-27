@@ -12,6 +12,7 @@ import ErrorPage from "../Pages/ErrorPage";
 import PrivateRoute from "./PrivateRoute";
 import DashboardLayout from "../Layout/DashboardLayout";
 import Dashboard from "../Pages/Dashboard/Dashboard";
+import MyProduct from "../Pages/Dashboard/MyProduct";
 
 export const router = createBrowserRouter([
   {
@@ -59,7 +60,7 @@ export const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [{
       path:'/dashboard',
-      element:<Dashboard></Dashboard>
+      element:<MyProduct></MyProduct>
     }],
   },
 ]);
