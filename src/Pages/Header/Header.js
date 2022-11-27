@@ -19,10 +19,7 @@ const Header = () => {
 
     return (
       <div>
-        <div
-        
-          className="px-4 py-5 bg-violet-800 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 mb-2"
-        >
+        <div className="px-4 py-5 bg-violet-800 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 mb-2">
           <div className="relative flex items-center justify-between">
             <Link
               to="/"
@@ -62,17 +59,17 @@ const Header = () => {
               </li>
               <li>
                 <Link
-                  to="/catogory"
+                  to="/catorgory"
                   aria-label="Category"
                   title="Category"
                   className="font-medium tracking-wide text-gray-200 transition-colors duration-200 hover:text-deep-purple-accent-400"
                 >
-                  Category
+                  Catorgory
                 </Link>
               </li>
               <li>
                 <Link
-                  to="/"
+                  to="/faq"
                   aria-label="Faq"
                   title="Faq"
                   className="font-medium tracking-wide text-gray-200 transition-colors duration-200 hover:text-deep-purple-accent-400"
@@ -82,7 +79,7 @@ const Header = () => {
               </li>
               <li>
                 <Link
-                  to="/"
+                  to="/about"
                   aria-label="About us"
                   title="About us"
                   className="font-medium tracking-wide text-gray-200 transition-colors duration-200 hover:text-deep-purple-accent-400"
@@ -227,17 +224,17 @@ const Header = () => {
                         </li>
                         <li>
                           <Link
-                            to="/"
+                            to="/catorgory"
                             aria-label="Category"
                             title="Category"
                             className="font-medium tracking-wide text-gray-200 transition-colors duration-200 hover:text-deep-purple-accent-400"
                           >
-                            Category
+                            Catogory
                           </Link>
                         </li>
                         <li>
                           <Link
-                            to="/"
+                            to="/faq"
                             aria-label="Faq"
                             title="Faq"
                             className="font-medium tracking-wide text-gray-200 transition-colors duration-200 hover:text-deep-purple-accent-400"
@@ -247,7 +244,7 @@ const Header = () => {
                         </li>
                         <li>
                           <Link
-                            to="/"
+                            to="/about"
                             aria-label="About us"
                             title="About us"
                             className="font-medium tracking-wide text-gray-200 transition-colors duration-200 hover:text-deep-purple-accent-400"

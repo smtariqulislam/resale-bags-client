@@ -9,6 +9,7 @@
 6. react rook form
 7. firebase 
 8. react toastify
+9. day picker 
 
 ## implement:
 1. react router dom setup.

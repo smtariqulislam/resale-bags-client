@@ -11,7 +11,15 @@
         "oldprice": "500",
         "location": "Dhaka",
         "useYear": "2day" ,
-        "description":"Proactively scale impactful infrastructures without bricks-and-clicks data. Seamlessly parallel task multimedia based mindshare vis-a-vis one-to-one catalysts for change. Dramatically disseminate."
+        "description":"Proactively scale impactful infrastructures without bricks-and-clicks data. Seamlessly parallel task multimedia based mindshare vis-a-vis one-to-one catalysts for change. Dramatically disseminate.",
+         "slots": [
+      "80",
+      "200",
+      "300",
+      "400",
+      "500",
+      "1500"
+    ]
     },
      {
         "id":"2",
@@ -25,7 +33,15 @@
        "oldprice": "500",
         "location": "Dhaka",
         "useYear": "2day",
-          "description":"Proactively scale impactful infrastructures without bricks-and-clicks data. Seamlessly parallel task multimedia based mindshare vis-a-vis one-to-one catalysts for change. Dramatically disseminate."
+          "description":"Proactively scale impactful infrastructures without bricks-and-clicks data. Seamlessly parallel task multimedia based mindshare vis-a-vis one-to-one catalysts for change. Dramatically disseminate.",
+           "slots": [
+      "80",
+      "200",
+      "300",
+      "400",
+      "500",
+      "1500"
+    ]
     },
      {
         "id":"3",
@@ -39,7 +55,15 @@
        "oldprice": "500",
         "location": "Dhaka",
         "useYear": "2day",
-          "description":"Proactively scale impactful infrastructures without bricks-and-clicks data. Seamlessly parallel task multimedia based mindshare vis-a-vis one-to-one catalysts for change. Dramatically disseminate."
+          "description":"Proactively scale impactful infrastructures without bricks-and-clicks data. Seamlessly parallel task multimedia based mindshare vis-a-vis one-to-one catalysts for change. Dramatically disseminate.",
+           "slots": [
+      "80",
+      "200",
+      "300",
+      "400",
+      "500",
+      "1500"
+    ]
     },
      {
         "id":"4",
@@ -53,7 +77,15 @@
        "oldprice": "500",
         "location": "Dhaka",
         "useYear": "2day",
-          "description":"Proactively scale impactful infrastructures without bricks-and-clicks data. Seamlessly parallel task multimedia based mindshare vis-a-vis one-to-one catalysts for change. Dramatically disseminate."
+          "description":"Proactively scale impactful infrastructures without bricks-and-clicks data. Seamlessly parallel task multimedia based mindshare vis-a-vis one-to-one catalysts for change. Dramatically disseminate.",
+           "slots": [
+      "80",
+      "200",
+      "300",
+      "400",
+      "500",
+      "1500"
+    ]
     },
      {
         "id":"5",
@@ -67,7 +99,15 @@
        "oldprice": "500",
         "location": "Dhaka",
         "useYear": "2day",
-          "description":"Proactively scale impactful infrastructures without bricks-and-clicks data. Seamlessly parallel task multimedia based mindshare vis-a-vis one-to-one catalysts for change. Dramatically disseminate."
+          "description":"Proactively scale impactful infrastructures without bricks-and-clicks data. Seamlessly parallel task multimedia based mindshare vis-a-vis one-to-one catalysts for change. Dramatically disseminate.",
+           "slots": [
+      "80",
+      "200",
+      "300",
+      "400",
+      "500",
+      "1500"
+    ]
     },
      {
         "id":"6",
@@ -80,6 +120,14 @@
        "oldprice": "500",
         "location": "Dhaka",
         "useYear": "2day",
-          "description":"Proactively scale impactful infrastructures without bricks-and-clicks data. Seamlessly parallel task multimedia based mindshare vis-a-vis one-to-one catalysts for change. Dramatically disseminate."
+          "description":"Proactively scale impactful infrastructures without bricks-and-clicks data. Seamlessly parallel task multimedia based mindshare vis-a-vis one-to-one catalysts for change. Dramatically disseminate.",
+           "slots": [
+      "80",
+      "200",
+      "300",
+      "400",
+      "500",
+      "1500"
+    ]
     }
 ]
