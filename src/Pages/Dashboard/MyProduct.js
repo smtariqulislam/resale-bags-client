@@ -31,7 +31,7 @@ const MyProduct = () => {
                 <th></th>
                 <th>Name</th>
                 <th>Email</th>
-                <th>ProductName</th>
+                <th>Product-Name</th>
                 <th>Price</th>
                 <th>Process</th>
               </tr>

@@ -43,7 +43,6 @@ const Catorgory = () => {
 
         {bookingProduct && <BookingModal 
         setBookingProduct={setBookingProduct}
-        
         bookingProduct={bookingProduct}></BookingModal>}
       </div>
     );

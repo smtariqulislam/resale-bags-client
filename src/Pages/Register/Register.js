@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-
 import { toast } from "react-toastify";
 import { AuthContext } from "../../contexts/AuthProvider";
 import SmallSpinner from "../../components/SmallSpinner";
@@ -13,6 +12,7 @@ const Register = () => {
     signInWithGoogle,
     loading,
     setLoading,
+    verifyEmail,
   } = useContext(AuthContext);
 
   const navigate = useNavigate();
@@ -23,19 +23,16 @@ const Register = () => {
   // signup using email and pass
   const handleSignUp = (event) => {
     event.preventDefault();
-    const form = event.target;
-    const name = form.name.value;
-    const image = form.image.files[0];
-    const email = form.email.value;
-    const password = form.password.value;
-    // console.log(image);
+    const name = event.target.name.value;
 
+    const email = event.target.email.value;
+    const password = event.target.password.value;
+
+    // Image Upload
+    const image = event.target.image.files[0];
     const formData = new FormData();
     formData.append("image", image);
-    //d51056df54a16b782fcbb3e2cfdd3ea4
-
-    const url =
-      "https://api.imgbb.com/1/upload?key=d51056df54a16b782fcbb3e2cfdd3ea4";
+    const url = `https://api.imgbb.com/1/upload?key=${process.env.REACT_APP_IMGBB_KEY}`;
 
     fetch(url, {
       method: "POST",
@@ -43,26 +40,29 @@ const Register = () => {
     })
       .then((res) => res.json())
       .then((imageData) => {
-        console.log(imageData.data.display_url);
-
-        //create user
+        // Create User
         createUser(email, password)
           .then((result) => {
             setAuthToken(result.user);
-            updateUserProfile(name, imageData.data.display_url).then(
-              toast.success("image uplade and your name")
-              //  navigate(from,{replace:true})
-            );
-            navigate(from, { replace: true }).catch((error) =>
-              console.log(error)
-            );
+            updateUserProfile(name, imageData.data.display_url)
+              .then(
+                verifyEmail().then(() => {
+                  toast.success(
+                    "Please check your email for verification link."
+                  );
+                  setLoading(false);
+                  navigate(from, { replace: true });
+                })
+              )
+              .catch((err) => console.log(err));
           })
-          .catch((error) => {
-            console.log(error);
+
+          .catch((err) => {
+            console.log(err);
             setLoading(false);
           });
       })
-      .catch((error) => console.log(error));
+      .catch((err) => console.log(err));
   };
 
   //google signIn

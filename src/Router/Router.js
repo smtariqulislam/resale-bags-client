@@ -1,19 +1,16 @@
 import { createBrowserRouter } from "react-router-dom";
-
 import Main from "../Layout/Main";
 import Blog from "../Pages/Blog";
 import Home from "../Pages/Home/Home";
 import Register from "../Pages/Register/Register";
 import Login from "../Pages/Login/Login"
 import Catorgory from "../Pages/Catorgory/Catorgory";
-
-
 import ErrorPage from "../Pages/ErrorPage";
 import PrivateRoute from "./PrivateRoute";
 import DashboardLayout from "../Layout/DashboardLayout";
-
 import MyProduct from "../Pages/Dashboard/MyProduct";
 import Checkout from "../Pages/Catorgory/Checkout";
+
 
 export const router = createBrowserRouter([
   {
