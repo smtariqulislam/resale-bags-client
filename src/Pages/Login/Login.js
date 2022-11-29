@@ -5,18 +5,14 @@ import { setAuthToken } from "../../api/auth";
 import SmallSpinner from "../../components/SmallSpinner";
 import { AuthContext } from "../../contexts/AuthProvider";
 
-
 const Login = () => {
   const { signIn, signInWithGoogle, loading, setLoading } =
     useContext(AuthContext);
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const location = useLocation();
 
-  const from = location.state?.from?.pathname || '/';
-
-
-
+  const from = location.state?.from?.pathname || "/";
 
   // signIn using email and pass
   const handlelogin = (event) => {
@@ -25,18 +21,19 @@ const Login = () => {
     const email = form.email.value;
     const password = form.password.value;
 
-    signIn(email,password).then(result =>{
-      toast.success('login sucess');
-      //get token
-      setAuthToken(result.user);
-      // console.log(result.user)
-      navigate(from,{replace:true})
-    }).catch(error => {
-      toast.error(error.message);
-      console.log(error);
-      setLoading(false); //for spinner.
-    });
-
+    signIn(email, password)
+      .then((result) => {
+        toast.success("login sucess");
+        //get token
+        setAuthToken(result.user);
+        // console.log(result.user)
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        toast.error(error.message);
+        console.log(error);
+        setLoading(false); //for spinner.
+      });
   };
 
   //google signIn
@@ -45,7 +42,7 @@ const Login = () => {
     // console.log('google')
     signInWithGoogle().then((result) => {
       console.log(result.user);
-       navigate(from,{replace:true});
+      navigate(from, { replace: true });
     });
   };
 
@@ -99,9 +96,7 @@ const Login = () => {
           <div className="space-y-2">
             <div>
               <button className="w-full px-8 py-3 font-semibold rounded-md   bg-violet-400   text-gray-900">
-               {
-                loading? <SmallSpinner></SmallSpinner> : 'Sign In'
-               }
+                {loading ? <SmallSpinner></SmallSpinner> : "Sign In"}
               </button>
             </div>
             <p className="px-6 text-sm text-center text-gray-400">

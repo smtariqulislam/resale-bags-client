@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 
 const MyProduct = () => {
@@ -30,19 +31,27 @@ const MyProduct = () => {
                 <th></th>
                 <th>Name</th>
                 <th>Email</th>
-                <th>Price</th>
                 <th>ProductName</th>
                 <th>Price</th>
+                <th>Process</th>
               </tr>
             </thead>
             <tbody>
               {users.map((u, i) => (
-                <tr key={u._id} className="hover">
+                <tr key={u._id}>
                   <th>{i + 1}</th>
                   <td>{u.costomer}</td>
                   <td>{u.email}</td>
                   <td>{u.product}</td>
                   <td>price asbe pore</td>
+                  <td className="p-1">
+                    <Link
+                      to={`/checkout/`}
+                      className="btn bg-violet-800 text-gray-100 w-full"
+                    >
+                      Oder
+                    </Link>
+                  </td>
                 </tr>
               ))}
             </tbody>

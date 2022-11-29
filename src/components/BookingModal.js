@@ -1,11 +1,12 @@
 import { format } from 'date-fns';
 import React, { useContext } from 'react';
 
+
 import { toast } from 'react-toastify';
 import { AuthContext } from '../contexts/AuthProvider';
 
 const BookingModal = ({ bookingProduct, setBookingProduct }) => {
-  const { name:productName , slots } = bookingProduct;
+  const { name:productName , slots} = bookingProduct;
   const date = format(new Date(), "PP");
 
   const { user } = useContext(AuthContext);
@@ -40,7 +41,7 @@ const BookingModal = ({ bookingProduct, setBookingProduct }) => {
         console.log(data);
         if (data.acknowledged) {
            setBookingProduct(null);
-          toast.success("Booking confirmed");
+          toast.success("Booked Check Dashboard for Comfirm. ");
           // refetch();
         } else {
           toast.error(data.message);
@@ -105,8 +106,10 @@ const BookingModal = ({ bookingProduct, setBookingProduct }) => {
             <input
               className="btn bg-violet-800 text-gray-100 w-full"
               type="submit"
-              value="Submit"
+              value="Oder"
             />
+
+           
           </form>
         </div>
       </div>

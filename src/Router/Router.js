@@ -7,12 +7,13 @@ import Register from "../Pages/Register/Register";
 import Login from "../Pages/Login/Login"
 import Catorgory from "../Pages/Catorgory/Catorgory";
 
-import CatorgoryDetails from "../Pages/Catorgory/CatorgoryDetails";
+
 import ErrorPage from "../Pages/ErrorPage";
 import PrivateRoute from "./PrivateRoute";
 import DashboardLayout from "../Layout/DashboardLayout";
-import Dashboard from "../Pages/Dashboard/Dashboard";
+
 import MyProduct from "../Pages/Dashboard/MyProduct";
+import Checkout from "../Pages/Catorgory/Checkout";
 
 export const router = createBrowserRouter([
   {
@@ -46,21 +47,31 @@ export const router = createBrowserRouter([
         element: <Catorgory></Catorgory>,
       },
       {
-        path: "/catorgory/:id",
-        loader: ({ params }) => fetch(`data.json/`),
+        path: "/checkout/",
+        loader: ({ params }) => fetch(`http://localhost:4000/product/${params.id}`),
 
-        element: <CatorgoryDetails></CatorgoryDetails>,
+        element: (
+          <PrivateRoute>
+            <Checkout></Checkout>
+          </PrivateRoute>
+        ),
       },
     ],
   },
 
   {
     path: "/dashboard",
-    element: <PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
+    element: (
+      <PrivateRoute>
+        <DashboardLayout></DashboardLayout>
+      </PrivateRoute>
+    ),
     errorElement: <ErrorPage />,
-    children: [{
-      path:'/dashboard',
-      element:<MyProduct></MyProduct>
-    }],
+    children: [
+      {
+        path: "/dashboard",
+        element: <MyProduct></MyProduct>,
+      },
+    ],
   },
 ]);

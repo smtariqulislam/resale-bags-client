@@ -6,7 +6,6 @@ import { AuthContext } from "../../contexts/AuthProvider";
 import SmallSpinner from "../../components/SmallSpinner";
 import { setAuthToken } from "../../api/auth";
 
-
 const Register = () => {
   const {
     createUser,
@@ -15,7 +14,6 @@ const Register = () => {
     loading,
     setLoading,
   } = useContext(AuthContext);
-
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -37,70 +35,46 @@ const Register = () => {
     //d51056df54a16b782fcbb3e2cfdd3ea4
 
     const url =
-      "https://api.imgbb.com/1/upload?key=d51056df54a16b782fcbb3e2cfdd3ea4"
+      "https://api.imgbb.com/1/upload?key=d51056df54a16b782fcbb3e2cfdd3ea4";
 
-      fetch(url, {
-        method: "POST",
-        body: formData,
-      })
-        .then(res => res.json())
-        .then(imageData =>
-        {
-          console.log(imageData.data.display_url)
+    fetch(url, {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((imageData) => {
+        console.log(imageData.data.display_url);
 
-         //create user
-         createUser(email, password)
-        .then(result => {
-          setAuthToken(result.user);
-          updateUserProfile(name, imageData.data.display_url)
-            .then(
-              toast.success(
-                'image uplade and your name'
-              )
+        //create user
+        createUser(email, password)
+          .then((result) => {
+            setAuthToken(result.user);
+            updateUserProfile(name, imageData.data.display_url).then(
+              toast.success("image uplade and your name")
               //  navigate(from,{replace:true})
-               
-            )
-             navigate(from,{replace:true})
-           
-            .catch((error) => console.log(error));
-
-        })
-          .catch(error => {
-            console.log(error);
-            setLoading(false)
+            );
+            navigate(from, { replace: true }).catch((error) =>
+              console.log(error)
+            );
           })
-
-        })
-        .catch(error => console.log(error))
-
+          .catch((error) => {
+            console.log(error);
+            setLoading(false);
+          });
+      })
+      .catch((error) => console.log(error));
   };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   //google signIn
 
   const handleGoogleSignIn = () => {
     // console.log('google')
-   signInWithGoogle().then((result) => {
-     console.log(result.user);
+    signInWithGoogle().then((result) => {
+      console.log(result.user);
 
-     setAuthToken(result.user);
-      navigate(from,{replace:true})
-   });
+      setAuthToken(result.user);
+      navigate(from, { replace: true });
+    });
   };
 
   return (

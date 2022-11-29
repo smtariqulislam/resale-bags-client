@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from "react-router-dom";
 import { StarIcon } from "@heroicons/react/24/solid";
+import { AuthContext } from '../contexts/AuthProvider';
 
 const CatorgoryCart = ({ product, setBookingProduct }) => {
   // console.log(product);
+
+  const { user } = useContext(AuthContext);
 
   return (
     <div className="p-6  rounded shadow-lg">
@@ -37,13 +40,35 @@ const CatorgoryCart = ({ product, setBookingProduct }) => {
             Booked Now
           </Link> */}
 
-        <label
-          htmlFor="my-modal-3"
-          className="btn bg-violet-800 text-gray-100 hover:bg-violet-500"
-          onClick={()=>setBookingProduct(product)}
-        >
-          Book Now
-        </label>
+        {user?.email ? (
+          <>
+            {/* <Link to="/deshboard">
+              <label
+                htmlFor="my-modal-3"
+                className="btn bg-violet-800 text-gray-100 hover:bg-violet-500"
+                onClick={() => setBookingProduct(product)}
+              >
+                Booked Now
+              </label>
+            </Link> */}
+            <label
+              htmlFor="my-modal-3"
+              className="btn bg-violet-800 text-gray-100 hover:bg-violet-500"
+              onClick={() => setBookingProduct(product)}
+            >
+              Booked Now
+            </label>
+          </>
+        ) : (
+          <>
+            <Link
+              to="/login"
+              className="btn bg-violet-800 text-gray-100 hover:bg-violet-500"
+            >
+              Booked Now
+            </Link>
+          </>
+        )}
       </div>
     </div>
   );
