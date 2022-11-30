@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 
-const MyProduct = () => {
+const MyOder = () => {
 
     const [users,setUsers]=useState([])
 
@@ -61,4 +61,4 @@ const MyProduct = () => {
     );
 };
 
-export default MyProduct;
+export default MyOder;

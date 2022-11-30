@@ -1,10 +1,15 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Dashboard = () => {
     return (
       <div>
-       comming soon...
-
+        <Link className="" to="/dashboard/becomeaseller">
+          Become A Seller
+        </Link>
+        
+        Dashboard
+        
       </div>
     );
 };

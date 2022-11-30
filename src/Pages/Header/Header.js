@@ -22,46 +22,23 @@ const Header = () => {
            <Link to="/">Home</Link>
          </li>
          <li>
-           <Link
-             to="/catorgory"
-            
-           >
-             Catorgory
-           </Link>
+           <Link to="/catorgory">Catorgory</Link>
          </li>
          <li>
-           <Link
-             to="/faq"
-           
-           >
-             Faq
-           </Link>
+           <Link to="/faq">Faq</Link>
          </li>
          <li>
-           <Link
-             to="/about"
-             
-           >
-             About us
-           </Link>
+           <Link to="/about">About us</Link>
          </li>
          <li>
-           <Link
-             to="/blog"
-          
-           >
-             Blog
-           </Link>
+           <Link to="/blog">Blog</Link>
          </li>
-         <li>
-           <Link
-             to="/dashboard"
-           >
-             Dashboard
-           </Link>
-         </li>
-         {user?.uid?(
+
+         {user?.uid ? (
            <>
+             <li>
+               <Link to="/dashboard">Dashboard</Link>
+             </li>
              <li>
                <button
                  onClick={handlelogout}

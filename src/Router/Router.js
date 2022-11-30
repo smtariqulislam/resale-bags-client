@@ -8,8 +8,10 @@ import Catorgory from "../Pages/Catorgory/Catorgory";
 import ErrorPage from "../Pages/ErrorPage";
 import PrivateRoute from "./PrivateRoute";
 import DashboardLayout from "../Layout/DashboardLayout";
-import MyProduct from "../Pages/Dashboard/MyProduct";
+import MyProduct from "../Pages/Dashboard/MyOder";
 import Checkout from "../Pages/Catorgory/Checkout";
+import BecomeASeller from "../Pages/Dashboard/BecomeASeller";
+import AllUser from "../Pages/Dashboard/AllUser";
 
 
 export const router = createBrowserRouter([
@@ -45,7 +47,8 @@ export const router = createBrowserRouter([
       },
       {
         path: "/checkout/",
-        loader: ({ params }) => fetch(`http://localhost:4000/product/${params.id}`),
+        loader: ({ params }) =>
+          fetch(`http://localhost:4000/product/${params.id}`),
 
         element: (
           <PrivateRoute>
@@ -67,7 +70,27 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "/dashboard",
-        element: <MyProduct></MyProduct>,
+        element: (
+          <PrivateRoute>
+            <MyProduct></MyProduct>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/dashboard/becomeaseller",
+        element: (
+          <PrivateRoute>
+            <BecomeASeller></BecomeASeller>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/dashboard/allusers",
+        element: (
+          <PrivateRoute>
+           <AllUser></AllUser>
+          </PrivateRoute>
+        ),
       },
     ],
   },
