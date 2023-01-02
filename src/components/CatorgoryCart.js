@@ -6,6 +6,8 @@ import { AuthContext } from '../contexts/AuthProvider';
 const CatorgoryCart = ({ product, setBookingProduct }) => {
   // console.log(product);
 
+  // const {_id} = product;
+
   const { user } = useContext(AuthContext);
 
   return (
@@ -36,27 +38,17 @@ const CatorgoryCart = ({ product, setBookingProduct }) => {
           <StarIcon className="h3 w-3 text-green-500" />
           <span>{product.rating}</span>
         </div>
-        {/* <Link className="px-8 py-3 text-lg font-semibold rounded bg-violet-800 text-gray-100 hover:bg-violet-500">
-            Booked Now
-          </Link> */}
+     
 
         {user?.email ? (
           <>
-            {/* <Link to="/deshboard">
-              <label
-                htmlFor="my-modal-3"
-                className="btn bg-violet-800 text-gray-100 hover:bg-violet-500"
-                onClick={() => setBookingProduct(product)}
-              >
-                Booked Now
-              </label>
-            </Link> */}
+           
             <label
               htmlFor="my-modal-3"
               className="btn bg-violet-800 text-gray-100 hover:bg-violet-500"
               onClick={() => setBookingProduct(product)}
             >
-              Booked Now
+              Details
             </label>
           </>
         ) : (
@@ -65,7 +57,7 @@ const CatorgoryCart = ({ product, setBookingProduct }) => {
               to="/login"
               className="btn bg-violet-800 text-gray-100 hover:bg-violet-500"
             >
-              Booked Now
+              Details
             </Link>
           </>
         )}

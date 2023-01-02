@@ -1,128 +1,21 @@
 [
-    {
-        
-
-        "catorgory": "School Bags",
-        "sellName": "Rafiq",
-        "postTime": "10:30",
-        "name": "Daypack",
-        "price": "10000",
-        "img": "https://www.grabon.in/indulge/wp-content/uploads/2021/11/daypack-300x300.jpg",
-        "oldprice": "500",
-        "location": "Dhaka",
-        "useYear": "2day" ,
-        "description":"Proactively scale impactful infrastructures without bricks-and-clicks data. Seamlessly parallel task multimedia based mindshare vis-a-vis one-to-one catalysts for change. Dramatically disseminate.",
-         "slots": [
-      "1",
-      "2",
-      "3",
-      "4",
-      "5"
-    ]
-    },
-     {
-        
-       
-        "catorgory": "School Bags",
-        "sellName": "Rafiq",
-        "postTime": "10:30",
-        "name": "Laptop Bag",
-        "price": "10000",
-        "img": "https://www.grabon.in/indulge/wp-content/uploads/2021/11/laptop-bag-350x350.jpg",
-       "oldprice": "500",
-        "location": "Dhaka",
-        "useYear": "2day",
-          "description":"Proactively scale impactful infrastructures without bricks-and-clicks data. Seamlessly parallel task multimedia based mindshare vis-a-vis one-to-one catalysts for change. Dramatically disseminate.",
-           "slots": [
-      "1",
-      "2",
-      "3",
-      "4",
-      "5"
-    ]
-    },
-     {
-        
-       
-        "catorgory": "Ledies Bags",
-        "sellName": "Rehana",
-        "postTime": "10:30",
-        "name": "Minaudière",
-        "price": "10000",
-        "img": "https://www.grabon.in/indulge/wp-content/uploads/2021/11/minaudi-e1637667118747-300x256.jpg",
-       "oldprice": "500",
-        "location": "Dhaka",
-        "useYear": "2day",
-          "description":"Proactively scale impactful infrastructures without bricks-and-clicks data. Seamlessly parallel task multimedia based mindshare vis-a-vis one-to-one catalysts for change. Dramatically disseminate.",
-           "slots": [
-       "1",
-      "2",
-      "3",
-      "4",
-      "5"
-    ]
-    },
-     {
-        
-       
-        "catorgory": "Ledies Bags",
-        "sellName": "Rehana",
-        "postTime": "10:30",
-        "name": "Bracelet Bag",
-        "price": "10000",
-        "img": "https://www.grabon.in/indulge/wp-content/uploads/2021/11/bracelet-bag-e1637667167904-300x276.jpg",
-       "oldprice": "500",
-        "location": "Dhaka",
-        "useYear": "2day",
-          "description":"Proactively scale impactful infrastructures without bricks-and-clicks data. Seamlessly parallel task multimedia based mindshare vis-a-vis one-to-one catalysts for change. Dramatically disseminate.",
-           "slots": [
-      "1",
-      "2",
-      "3",
-      "4",
-      "5"
+  {
+    
+      "catorgory": "School Bags"
       
-    ]
-    },
-     {
-        
-       
-        "catorgory": "Shoping Bags",
-        "sellName": "Rafiq",
-        "postTime": "10:30",
-        "name": "Straw Bag",
-        "price": "10000",
-        "img": "https://www.grabon.in/indulge/wp-content/uploads/2021/11/straw-bag-e1637667662640.jpg",
-       "oldprice": "500",
-        "location": "Dhaka",
-        "useYear": "2day",
-          "description":"Proactively scale impactful infrastructures without bricks-and-clicks data. Seamlessly parallel task multimedia based mindshare vis-a-vis one-to-one catalysts for change. Dramatically disseminate.",
-           "slots": [
-      "1",
-      "2",
-      "3",
-      "4",
-      "5"
-    ]
-    },
-     {
-        
-        "catorgory": "Shoping bags",
-        "sellName": "Rafiq",
-        "postTime": "10:30",
-        "name": "Beach Bag",
-        "price": "10000",
-        "img": "https://www.grabon.in/indulge/wp-content/uploads/2021/11/beach-bag.jpg",
-       "oldprice": "500",
-        "location": "Dhaka",
-        "useYear": "2day",
-          "description":"Proactively scale impactful infrastructures without bricks-and-clicks data. Seamlessly parallel task multimedia based mindshare vis-a-vis one-to-one catalysts for change. Dramatically disseminate.",
-           "slots": [
-      "1",
-      "2",
-      "3",
-      "4",
-      "5"
-    ]
-    }
+     
+
+  },
+  {
+
+    "catorgory": "Ledies Bags"
+   
+    
+
+  },
+  {
+   
+     "catorgory":  "Beach Bag"
+
+  }
 ]

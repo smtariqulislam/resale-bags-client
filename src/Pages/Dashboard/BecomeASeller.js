@@ -36,7 +36,7 @@ const BecomeASeller = () => {
                role: "requested",
              };
              // Send request do server
-            //  console.log(hostData);
+            //  console.log(sellertData);
              sellerRequest(sellerData)
                .then((data) => console.log(data))
                .catch((err) => console.log(err));
@@ -47,12 +47,11 @@ const BecomeASeller = () => {
            .catch((err) => console.log(err));
        };
           
-    
 
     return (
       <>
         {role ? (
-          <div className="h-screen text-gray-600 flex flex-col justify-center items-center pb-16 text-xl lg:text-3xl">
+          <div className="h-screen text-gray-600 flex flex-col  justify-center text-center items-center pb-16 text-xl lg:text-3xl">
             Request Sent, wait for admin approval
           </div>
         ) : (

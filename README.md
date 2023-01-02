@@ -1,5 +1,9 @@
 # Project setup :
 
+
+admin: bihife8586@cnxcoin.com
+password:123456
+
 ## install:
 1. npx create-react-app 
 2. git init

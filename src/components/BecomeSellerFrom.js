@@ -9,14 +9,14 @@ const BecomeSellerFrom = ({ handleSubmit }) => {
     <section className="p-6  text-gray-100">
       <form
         onSubmit={handleSubmit}
-        novalidate=""
+   
         className="container w-full max-w-xl p-8 mx-auto space-y-6 rounded-md shadow bg-violet-800 ng-untouched ng-pristine ng-valid"
       >
         <h2 className="w-full text-3xl font-bold text-center leading-tight">
           Seller Request For Admin
         </h2>
         <div>
-          <label for="name" className="block mb-1 ml-1">
+          <label htmlFor="name" className="block mb-1 ml-1">
             Name
           </label>
           <input
@@ -30,7 +30,7 @@ const BecomeSellerFrom = ({ handleSubmit }) => {
           />
         </div>
         <div>
-          <label for="email" className="block mb-1 ml-1">
+          <label htmlFor="email" className="block mb-1 ml-1">
             Email
           </label>
           <input
@@ -46,13 +46,13 @@ const BecomeSellerFrom = ({ handleSubmit }) => {
         </div>
 
         <div>
-          <label for="email" className="block mb-1 ml-1">
+          <label htmlFor="email" className="block mb-1 ml-1">
             Location
           </label>
           <input
             id="location"
             type="location"
-            placeholder="Your email"
+            placeholder="location"
             required=""
             className="block w-full p-2 rounded focus:outline-none focus:ring focus:ring-opacity-25 focus:ring-violet-400 bg-gray-800"
             data-temp-mail-org="2"
@@ -61,7 +61,7 @@ const BecomeSellerFrom = ({ handleSubmit }) => {
 
         <div>
           <label htmlFor="image" className="block mb-2 text-sm">
-            NID:
+            NID Card:
           </label>
           <input
             type="file"

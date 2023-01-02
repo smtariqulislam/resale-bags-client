@@ -41,11 +41,11 @@ const Checkout = () => {
             <div className="flex justify-center flex-wrap items-stretch -mx-4">
               <div className="flex  w-full mb-8 sm:px-4 md:w-1/2 lg:w-1/3 lg:mb-0">
                 <div className="flex flex-col p-6 space-y-6 rounded shadow sm:p-8 bg-gray-100">
-                  <div className="space-y-2">
+                  {/* <div className="space-y-2">
                     <h4 className="text-2xl font-bold">Beginner</h4>
                     <span className="text-6xl font-bold">Free</span>
-                  </div>
-                  <p className="mt-3 leading-relaxed text-gray-800">
+                  </div> */}
+                  {/* <p className="mt-3 leading-relaxed text-gray-800">
                     Etiam ac convallis enim, eget euismod dolor.
                   </p>
                   <ul className="flex-1 mb-6 text-gray-800">
@@ -94,7 +94,7 @@ const Checkout = () => {
                       </svg>
                       <span>Tristique enim nec</span>
                     </li>
-                  </ul>
+                  </ul> */}
                   <button
                     onClick={handleBooking}
                     type="button"

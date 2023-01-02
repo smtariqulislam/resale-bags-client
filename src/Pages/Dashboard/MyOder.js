@@ -7,11 +7,11 @@ const MyOder = () => {
     const [users,setUsers]=useState([])
 
     const {user}=useContext(AuthContext);
-    // const url = `http://localhost:4000/bookings?email=${user?.email}`;
+    // const url = `https://server-site-psi.vercel.app/bookings?email=${user?.email}`;
 
 
      useEffect(() => {
-       fetch(`http://localhost:4000/bookings?email=${user?.email}`)
+       fetch(`https://server-site-psi.vercel.app/bookings?email=${user?.email}`)
          .then((res) => res.json())
          .then((data) => {
            // console.log(data);
@@ -22,7 +22,7 @@ const MyOder = () => {
     
 
     return (
-      <div>
+      <div className="mt-6 p-2">
         <h3 className="text-3xl mb-5">My Order </h3>
         <div className="overflow-x-auto">
           <table className="table w-full">

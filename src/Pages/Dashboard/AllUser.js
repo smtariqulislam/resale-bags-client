@@ -1,24 +1,19 @@
 // import { useQuery } from '@tanstack/react-query';
 import React, { useEffect, useState } from 'react';
+import { getAllUsers, makeSeller } from '../../api/user';
+import SmallSpinner from '../../components/SmallSpinner';
 
 
 const AllUser = () => {
 
      const [users, setUsers] = useState([]);
 
-    // const {data: users = {}}=useQuery({
-    //     queryKey:['users'],
-    //     queryFn: async()=>{
-    //         const res = await fetch("http://localhost:4000/users")
-    //         const data = await res.json();
-    //         return data;
+     const [loading, setLoading] = useState(false);
 
-    //     }
-    // })
 
 
      useEffect(() => {
-       fetch("http://localhost:4000/users")
+       fetch("https://server-site-psi.vercel.app/users")
          .then((res) => res.json())
          .then((data) => {
            console.log(data);
@@ -27,7 +22,7 @@ const AllUser = () => {
      }, []);
 
      const handleMakeSeller= id =>{
-        fetch(`http://localhost:4000/user/seller/${id}`,{ method:'PUT'
+        fetch(`https://server-site-psi.vercel.app/user/seller/${id}`,{ method:'PUT'
     })
     .then(res=>res.json())
         .then(data =>{
@@ -35,6 +30,20 @@ const AllUser = () => {
 
         })
      }
+
+      const handleRequest = (user) => {
+        makeSeller(user).then((data) => {
+          console.log(data);
+          getUsers();
+        });
+      };
+      const getUsers = () => {
+        setLoading(true);
+        getAllUsers().then((data) => {
+          setUsers(data);
+          setLoading(false);
+        });
+      };
 
 
 
@@ -46,7 +55,7 @@ const AllUser = () => {
             <thead>
               <tr>
                 <th></th>
-                <th>Id</th>
+                <th>Role</th>
                 <th>Email</th>
                 <th>Process</th>
                 {/* <th>Delete</th> */}
@@ -56,19 +65,26 @@ const AllUser = () => {
               {users.map((u, i) => (
                 <tr key={u._id}>
                   <th>{i + 1}</th>
-                  <td>{u._id}</td>
+                  <td>{u.role}</td>
                   <td>{u.email}</td>
                   <td>
-                    <button onClick={()=>handleMakeSeller(u._id)}
-                    className="btn bg-violet-800 text-gray-100 w-full">
-                      Now Seller
-                    </button>
-                    <br/> <br/>
-                    <button className="btn bg-red-400 text-gray-100 w-full">
-                      Delete
-                    </button>
+                    <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                      {u?.role && u.role === "requested" && (
+                        <span
+                          onClick={() => handleRequest(u)}
+                          className="relative cursor-pointer inline-block px-3 py-1 font-semibold text-green-900 leading-tight"
+                        >
+                          <span
+                            aria-hidden="true"
+                            className="absolute inset-0 bg-green-200 opacity-50 rounded-full"
+                          ></span>
+                          <span className="relative">
+                            {loading ? <SmallSpinner /> : " Approve Request"}
+                          </span>
+                        </span>
+                      )}
+                    </td>
                   </td>
-                 
                 </tr>
               ))}
             </tbody>

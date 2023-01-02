@@ -14,7 +14,7 @@ const BookingModal = ({ bookingProduct, setBookingProduct }) => {
   const handleBooking = (event) => {
     event.preventDefault();
     const form = event.target;
-    const slot = form.slot.value;
+    const price = form.price.value;
     const name = form.name.value;
     const email = form.email.value;
     const phone = form.phone.value;
@@ -23,13 +23,13 @@ const BookingModal = ({ bookingProduct, setBookingProduct }) => {
       selectedDate: date,
       product: productName,
       costomer: name,
-      slot,
+      price,
       email,
       phone,
     };
 
     //  console.log(booking);
-    fetch(`http://localhost:4000/bookings`, {
+    fetch(`https://server-site-psi.vercel.app/bookings`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -40,7 +40,7 @@ const BookingModal = ({ bookingProduct, setBookingProduct }) => {
       .then((data) => {
         console.log(data);
         if (data.acknowledged) {
-           setBookingProduct(null);
+          setBookingProduct(null);
           toast.success("Booked Check Dashboard for Comfirm. ");
           // refetch();
         } else {
@@ -70,13 +70,24 @@ const BookingModal = ({ bookingProduct, setBookingProduct }) => {
               value={date}
               className="input w-full input-bordered "
             />
-            <select name="slot" className="select select-bordered w-full">
-              {slots.map((slot, i) => (
+            {/* <select name="slot" className="select select-bordered w-full"> */}
+            {/* {slots.map((slot, i) => (
                 <option value={slot} key={i}>
                   {slot}
                 </option>
-              ))}
-            </select>
+              ))} */}
+
+            {/* </select> */}
+
+            <input
+              name="price"
+              type="text"
+              // defaultValue={user?.displayName}
+              // disabled
+              required
+              placeholder="price"
+              className="input w-full input-bordered"
+            />
             <input
               name="name"
               type="text"
@@ -97,6 +108,7 @@ const BookingModal = ({ bookingProduct, setBookingProduct }) => {
               name="phone"
               type="text"
               placeholder="Phone Number"
+              required
               className="input w-full input-bordered"
             />
             <br />
@@ -108,8 +120,6 @@ const BookingModal = ({ bookingProduct, setBookingProduct }) => {
               type="submit"
               value="Oder"
             />
-
-           
           </form>
         </div>
       </div>

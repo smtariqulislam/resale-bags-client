@@ -1,31 +1,47 @@
 
 import React, { useEffect, useState } from 'react';
-import BookingModal from '../../components/BookingModal';
-import CatorgoryCart from '../../components/CatorgoryCart';
+// import BookingModal from '../../components/BookingModal';
+import CartServices from '../../components/CartServices';
+// import CatorgoryCart from '../../components/CatorgoryCart';
 
 
 
 const Catorgory = () => {
-    const [catorgory,setCatorgory] =useState([])
+    // const [catorgory,setCatorgory] =useState([])
+    const [catorgoryName,setCatorgoryName]=useState([]);
 
     //  const [selected, setSelected] = useState(new Date());
-    const [bookingProduct,setBookingProduct] = useState(null);
+    // const [bookingProduct,setBookingProduct] = useState(null);
+
+    // useEffect(()=>{
+    //     fetch("https://server-site-psi.vercel.app/product")
+    //       .then((res) => res.json())
+    //       .then((data) => {
+    //         // console.log(data);
+    //         setCatorgory(data);
+    //       });
+    // },[])
 
     useEffect(()=>{
-        fetch("http://localhost:4000/product")
+        fetch("https://server-site-psi.vercel.app/catorgory")
           .then((res) => res.json())
           .then((data) => {
-            // console.log(data);
-            setCatorgory(data);
+            console.log(data);
+            setCatorgoryName(data);
           });
     },[])
 
 
     return (
-      <div>
-      
+      <div className="px-4 py-5 bg-white mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
+        <h2 className="mb-5 text-center text-4xl font-bold divide-y">
+          All Catorgory
+        </h2>
+        {catorgoryName.map((cn) => (
+          <CartServices key={cn._id} cn={cn}></CartServices>
+        ))}
 
-        <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+        {/* <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
           <h2 className="mb-5 text-center text-4xl font-bold divide-y">
             Product
           </h2>
@@ -41,9 +57,12 @@ const Catorgory = () => {
           </div>
         </div>
 
-        {bookingProduct && <BookingModal 
-        setBookingProduct={setBookingProduct}
-        bookingProduct={bookingProduct}></BookingModal>}
+        {bookingProduct && (
+          <BookingModal
+            setBookingProduct={setBookingProduct}
+            bookingProduct={bookingProduct}
+          ></BookingModal>
+        )} */}
       </div>
     );
 };

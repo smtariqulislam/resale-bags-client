@@ -8,10 +8,20 @@ import Catorgory from "../Pages/Catorgory/Catorgory";
 import ErrorPage from "../Pages/ErrorPage";
 import PrivateRoute from "./PrivateRoute";
 import DashboardLayout from "../Layout/DashboardLayout";
-import MyProduct from "../Pages/Dashboard/MyOder";
 import Checkout from "../Pages/Catorgory/Checkout";
 import BecomeASeller from "../Pages/Dashboard/BecomeASeller";
 import AllUser from "../Pages/Dashboard/AllUser";
+import Wecome from "../Pages/Dashboard/Wecome";
+import MyOder from '../Pages/Dashboard/MyOder'
+import AllBookings from "../Pages/Dashboard/AllBookings";
+import AddCatogory from "../Pages/Dashboard/AddCatogory";
+import SellerRoute from "./SellerRoute";
+import AdminRouter from "./AdminRouter";
+import ManageProduct from "../Pages/Dashboard/ManageProduct";
+import Product from "../Pages/Catorgory/Product";
+import About from "../Pages/About";
+
+
 
 
 export const router = createBrowserRouter([
@@ -29,6 +39,18 @@ export const router = createBrowserRouter([
         path: "/home",
         element: <Home></Home>,
       },
+
+      {
+        path: "/catorgory",
+
+        element: <Catorgory></Catorgory>,
+      },
+      {
+        path: "/catorgory/:id",
+        loader: ({ params }) =>
+          fetch(`https://server-site-psi.vercel.app/product/${params.id}`),
+        element: <Product></Product>,
+      },
       {
         path: "/blog",
         element: <Blog></Blog>,
@@ -42,14 +64,11 @@ export const router = createBrowserRouter([
         element: <Register></Register>,
       },
       {
-        path: "/catorgory",
-        element: <Catorgory></Catorgory>,
+        path: "/about",
+        element: <About></About>,
       },
       {
         path: "/checkout/",
-        loader: ({ params }) =>
-          fetch(`http://localhost:4000/product/${params.id}`),
-
         element: (
           <PrivateRoute>
             <Checkout></Checkout>
@@ -69,10 +88,18 @@ export const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
-        path: "/dashboard",
+        path: "",
         element: (
           <PrivateRoute>
-            <MyProduct></MyProduct>
+            <Wecome></Wecome>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/dashboard/order",
+        element: (
+          <PrivateRoute>
+            <MyOder></MyOder>
           </PrivateRoute>
         ),
       },
@@ -85,11 +112,36 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: "/dashboard/allusers",
+        path: "all-users",
         element: (
-          <PrivateRoute>
-           <AllUser></AllUser>
-          </PrivateRoute>
+          <AdminRouter>
+            <AllUser></AllUser>
+          </AdminRouter>
+        ),
+      },
+      {
+        path: "all-oders",
+        element: (
+          <AdminRouter>
+            <AllBookings></AllBookings>
+          </AdminRouter>
+        ),
+      },
+      {
+        path: "add-product",
+
+        element: (
+          <SellerRoute>
+            <AddCatogory></AddCatogory>
+          </SellerRoute>
+        ),
+      },
+      {
+        path: "manage-product",
+        element: (
+          <SellerRoute>
+            <ManageProduct></ManageProduct>
+          </SellerRoute>
         ),
       },
     ],
