@@ -3,7 +3,7 @@ import Main from "../Layout/Main";
 import Blog from "../Pages/Blog";
 import Home from "../Pages/Home/Home";
 import Register from "../Pages/Register/Register";
-import Login from "../Pages/Login/Login"
+import Login from "../Pages/Login/Login";
 import Catorgory from "../Pages/Catorgory/Catorgory";
 import ErrorPage from "../Pages/ErrorPage";
 import PrivateRoute from "./PrivateRoute";
@@ -12,7 +12,7 @@ import Checkout from "../Pages/Catorgory/Checkout";
 import BecomeASeller from "../Pages/Dashboard/BecomeASeller";
 import AllUser from "../Pages/Dashboard/AllUser";
 import Wecome from "../Pages/Dashboard/Wecome";
-import MyOder from '../Pages/Dashboard/MyOder'
+import MyOder from "../Pages/Dashboard/MyOder";
 import AllBookings from "../Pages/Dashboard/AllBookings";
 import AddCatogory from "../Pages/Dashboard/AddCatogory";
 import SellerRoute from "./SellerRoute";
@@ -20,9 +20,6 @@ import AdminRouter from "./AdminRouter";
 import ManageProduct from "../Pages/Dashboard/ManageProduct";
 import Product from "../Pages/Catorgory/Product";
 import About from "../Pages/About";
-
-
-
 
 export const router = createBrowserRouter([
   {
